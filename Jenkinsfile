@@ -1,11 +1,6 @@
 pipeline {
     agent any
     
-    environment {
-        FRONTEND_CREDENTIAL_ID = 'frontend-credentials'
-        BACKEND_CREDENTIAL_ID = 'backend-credentials'
-    }
-
     stages {
         stage('Build Frontend') {
             steps {
@@ -21,10 +16,6 @@ pipeline {
                 script {
                     echo "Testing frontend..."
                     // Perform frontend tests here
-                    withCredentials([usernamePassword(credentialsId: FRONTEND_CREDENTIAL_ID, usernameVariable: 'FRONTEND_USERNAME', passwordVariable: 'FRONTEND_PASSWORD')]) {
-                        sh "echo Username: $FRONTEND_USERNAME"
-                        sh "echo Password: $FRONTEND_PASSWORD"
-                    }
                 }
             }
         }
@@ -43,10 +34,6 @@ pipeline {
                 script {
                     echo "Testing backend..."
                     // Perform backend tests here
-                    withCredentials([usernamePassword(credentialsId: BACKEND_CREDENTIAL_ID, usernameVariable: 'BACKEND_USERNAME', passwordVariable: 'BACKEND_PASSWORD')]) {
-                        sh "echo Username: $BACKEND_USERNAME"
-                        sh "echo Password: $BACKEND_PASSWORD"
-                    }
                 }
             }
         }
@@ -61,3 +48,4 @@ pipeline {
         }
     }
 }
+
