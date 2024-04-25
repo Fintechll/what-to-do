@@ -2,8 +2,8 @@ pipeline {
     agent any
     
     environment {
-        FRONTEND_CREDENTIAL_ID = '86ec0e72-5d94-425b-a22d-7482bf14aa02'
-        BACKEND_CREDENTIAL_ID = '86ec0e72-5d94-425b-a22d-7482bf14aa02'
+        FRONTEND_CREDENTIAL_ID = 'f7c11957cd64eebc9a9e963d79db620eb903eb56'
+        BACKEND_CREDENTIAL_ID = 'f7c11957cd64eebc9a9e963d79db620eb903eb56'
     }
 
     stages {
